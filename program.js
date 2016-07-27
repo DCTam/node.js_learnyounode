@@ -1,17 +1,25 @@
-var mymodule = require('./module');
-var dir = process.argv[2];
-var filterExt = process.argv[3];
+/*
+//Excercise 3
+var fs = require('fs');
+//console.log(process.argv);
+//var string = fs.readFileSync(process.argv[2]).toString();
+//var strArray = string.split('\n');
 
-mymodule(dir, filterExt, function(err,data){
-    if(err){
-        console.log("error");
+//console.log(strArray.length - 1);
+/*
+ 
+ 
+/*
+//Exercise 4
+fs.readFile(process.argv[2], 'utf8', function (err, data){
+    if (err){
+        console.log("Error");
     }
-    else {
-            for(var ele of data){
-                console.log(ele);
-            }
-    }
+    
+    console.log(data.split('\n').length - 1);
 });
+*/
+
 
 /*
 //Exercise 5
@@ -32,24 +40,21 @@ fs.readdir(process.argv[2], function (err, list){ //should be argv[2] and 3
 */
 
 /*
-//Excercise 3
-var fs = require('fs');
-//console.log(process.argv);
-//var string = fs.readFileSync(process.argv[2]).toString();
-//var strArray = string.split('\n');
+//Exercise 6
+var mymodule = require('./module');
+var dir = process.argv[2];
+var filterExt = process.argv[3];
 
-//console.log(strArray.length - 1);
-/*
- 
- 
-/*
-//Exercise4
-fs.readFile(process.argv[2], 'utf8', function (err, data){
-    if (err){
-        console.log("Error");
+mymodule(dir, filterExt, function(err,data){
+    if(err){
+        console.log("error");
     }
-    
-    console.log(data.split('\n').length - 1);
+    else {
+            for(var ele of data){
+                console.log(ele);
+            }
+    }
 });
 */
+
 
