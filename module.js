@@ -8,7 +8,7 @@ module.exports = function process(dirName, fileExt, callback){
     fs.readdir(dirName, function(err, list){
 
         if(err){
-            return    callback(err);
+            return callback(err);
         }
 
         for(var ele of list){
