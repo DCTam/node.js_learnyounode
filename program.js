@@ -68,3 +68,9 @@ http.get(URL, function callback (response){
     });
 });
 */
+
+//Exercise 8
+var http = require('http');
+var URL = process.argv[2];
+
+
