@@ -130,3 +130,36 @@ http.get(URL1, function callback1(response1){
     });
 });
 */
+
+/*
+//Exercise 10
+var net = require('net');
+var date = new Date();
+var portNum = process.argv[2];
+var year, month, day, hour, min;
+
+var server = net.createServer(function(socket){
+    year = date.getFullYear();
+    month = date.getMonth() + 1;
+    day = date.getDate();
+    hour = date.getHours();
+    min = date.getMinutes();
+
+    if(month.length != 2){
+        month = "0" + month;
+    }
+
+    if(day.length == 1){
+        day = "0" + day;
+    }
+
+    var data = year + "-" + month + "-" + day + " " + hour + ":" + min;
+    if(data.length > 5){
+        socket.write(data + "\n");
+    }
+    socket.end();
+});
+
+server.listen(portNum);
+*/
+
