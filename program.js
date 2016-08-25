@@ -162,3 +162,18 @@ var server = net.createServer(function(socket){
 
 server.listen(portNum);
 */
+
+/*
+//Exercise 11
+var http = require('http');
+var fs = require('fs');
+var portNum = process.argv[2];
+var filePath = process.argv[3];
+
+var server = http.createServer(function (req, res){
+    var content = fs.createReadStream(filePath);
+    content.pipe(res);
+});
+server.listen(portNum);
+*/
+
