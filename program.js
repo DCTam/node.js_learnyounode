@@ -89,3 +89,44 @@ http.get(URL, function callback(response){
     });
 });
 */
+
+/*
+//Exercise 9
+var http = require('http');
+var URL1 = process.argv[2];
+var URL2 = process.argv[3];
+var URL3 = process.argv[4];
+
+http.get(URL1, function callback1(response1){
+    var charString1 = "";
+    response1.on("data", function(data1){
+        charString1 += data1;    
+    });
+
+    response1.on("end", function(){
+        console.log(charString1);
+    });
+
+    http.get(URL2, function callback2(response2){
+        var charString2 = "";
+        response2.on("data", function(data2){
+            charString2 += data2;
+        });
+        
+        response2.on("end", function(){
+            console.log(charString2);
+        });
+
+        http.get(URL3, function callback3(response3){
+            var charString3 = "";
+            response3.on("data", function(data3){
+                charString3 += data3;
+            });
+
+            response3.on("end", function(){
+                console.log(charString3);
+            });
+        });
+    });
+});
+*/
