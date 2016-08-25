@@ -28,6 +28,10 @@ var path = require('path');
 var filterExt = "";
 
 fs.readdir(process.argv[2], function (err, list){ //should be argv[2] and 3
+    if (err){
+        console.log("Error");
+    }
+
     filterExt = "." + process.argv[3];
    
     for(var ele of list){
@@ -69,8 +73,19 @@ http.get(URL, function callback (response){
 });
 */
 
+/*
 //Exercise 8
 var http = require('http');
 var URL = process.argv[2];
+var charString = "";
+http.get(URL, function callback(response){
+    response.on("data", function(data){
+        charString += data;
+    });
 
-
+    response.on("end", function(){
+       console.log(charString.length);
+       console.log(charString);
+    });
+});
+*/
