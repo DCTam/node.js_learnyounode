@@ -177,3 +177,52 @@ var server = http.createServer(function (req, res){
 server.listen(portNum);
 */
 
+/**
+//Exercise 12
+var http = require('http');
+var portNum = process.argv[2];
+var map = require('through2-map');
+
+var server = http.createServer(function (req, res){
+    if(req.method == 'POST'){
+        req.pipe(map(function (chunk){
+            return chunk.toString().toUpperCase();
+        })).pipe(res);
+    }
+});
+server.listen(portNum);
+*/
+/*
+//Exercise 13
+var http = require('http');
+var portNum = process.argv[2];
+var url = require('url');
+
+var server = http.createServer(function (req, res){
+    if(req.method == 'GET'){
+        //console.log(url.parse(req.url, true).query);
+        var dateString = url.parse(req.url, true).query.iso;
+        console.log(dateString);
+        console.log(Date.parse(dateString));
+        var date = new Date(url.parse(req.url, true).query.iso);
+        var dateObj = new Object();
+        dateObj.hour = date.getHours();
+        dateObj.minute = date.getMinutes();
+        dateObj.second = date.getSeconds();
+
+        var jsonFormat = JSON.stringify(dateObj);
+        console.log(jsonFormat);
+        var unixTime = new Object();
+        unixTime.unixtime = date.getTime();
+        var jsonUnix = JSON.stringify(unixTime);
+        res.writeHead(200, {'Content-Type': 'application/json' })
+        if(req.url.indexOf("/api/parsetime") != -1){
+            res.end(jsonFormat);
+        }
+        else if(req.url.indexOf("/api/unixtime") != -1){
+            res.end(jsonUnix);
+        }
+    }
+});
+server.listen(portNum);
+*/
